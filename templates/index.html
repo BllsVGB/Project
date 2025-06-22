@@ -23,7 +23,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            min-width: 300px;
+            min-width: 320px;
         }
 
         label {
@@ -42,6 +42,7 @@
             border-radius: 6px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            width: 100%;
         }
 
         input[type="file"]::file-selector-button {
@@ -57,17 +58,16 @@
             background-color: #2980b9;
         }
 
-        select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            background-position: right 10px center;
-        }
-
         form {
             display: flex;
             flex-direction: column;
             gap: 20px;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #aaa;
+            text-align: center;
         }
     </style>
 </head>
@@ -82,14 +82,25 @@
             <div>
                 <label for="new_extension">Формат вывода</label>
                 <select name="new_extension" id="new_extension" required>
-                    <option value="pdf">PDF</option>
-                    <option value="jpg">JPG</option>
-                    <option value="jpeg">JPEG</option>
-                    <option value="png">PNG</option>
+                    <optgroup label="Изображения">
+                        <option value="jpg">JPG</option>
+                        <option value="jpeg">JPEG</option>
+                        <option value="png">PNG</option>
+                        <option value="pdf">PDF</option>
+                    </optgroup>
+                    <optgroup label="Электронные книги">
+                        <option value="epub">EPUB</option>
+                        <option value="mobi">MOBI</option>
+                        <option value="azw3">AZW3</option>
+                        <option value="fb2">FB2</option>
+                        <option value="txt">TXT</option>
+                        <option value="docx">DOCX</option>
+                    </optgroup>
                 </select>
             </div>
 
             <button type="submit">Конвертировать</button>
+            <div class="note">Поддерживаются изображения и электронные книги</div>
         </form>
     </div>
 </body>
