@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Конвертер файлов</title>
+    <style>
+        body {
+            background-color: #1f1f1f;
+            font-family: 'Segoe UI', sans-serif;
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #2c2c2c;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            min-width: 300px;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        input[type="file"],
+        select,
+        button {
+            background-color: #3498db;
+            border: none;
+            color: #fff;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="file"]::file-selector-button {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        input[type="file"]:hover,
+        select:hover,
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-position: right 10px center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="POST" action="/convert" enctype="multipart/form-data">
+            <div>
+                <label for="file">Входной файл</label>
+                <input type="file" name="file" id="file" required>
+            </div>
+
+            <div>
+                <label for="new_extension">Формат вывода</label>
+                <select name="new_extension" id="new_extension" required>
+                    <option value="pdf">PDF</option>
+                    <option value="jpg">JPG</option>
+                    <option value="jpeg">JPEG</option>
+                    <option value="png">PNG</option>
+                </select>
+            </div>
+
+            <button type="submit">Конвертировать</button>
+        </form>
+    </div>
+</body>
+</html>
