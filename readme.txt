@@ -10,6 +10,7 @@ This is a Python-based Flask web application that allows users to upload files a
 
 ##Installation
 -pip install flask
+Install Calibre
 
 ##Usage
 index file should be in templates folder which is exist in same directory with app.py
