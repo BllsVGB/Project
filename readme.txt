@@ -1,32 +1,78 @@
-# File Extension Converter Web App
+# File & eBook Converter — Web App & Bot
 
-## Overview
-This is a Python-based Flask web application that allows users to upload files and convert their extensions to a desired format. The application ensures secure file handling and provides a user-friendly interface.
+## Описание проекта
 
-## Features
-- Upload any supported file type.
-- Select the target extension from a dropdown menu.
-- Convert the file extension and download the renamed file directly from the browser.
+Многофункциональное приложение на Python + Flask, которое позволяет:
 
-##Installation
--pip install flask
-Install Calibre
+- конвертировать файлы изображений (JPG, PNG, PDF и др.)
+- преобразовывать электронные книги (FB2, EPUB, MOBI и др.)
+- использовать веб-интерфейс или Telegram-бота
 
-##Usage
-index file should be in templates folder which is exist in same directory with app.py
-upload folder created automatically if didn't exist(inside it uploaded file will be saved)
+Конвертация eBook осуществляется через Calibre.
 
-Start the Flask development server:
-run python app.py
+## Возможности
 
-Open your browser and go to http://127.0.0.1:5000/.
-Click on the "Choose File" button to select a file.
-Select the desired extension from the dropdown menu (e.g., txt, png, pdf).
-Click "Convert" to rename the file and download it.
+- Загрузка файлов через браузер или бота
+- Выбор формата для конвертации
+- Поддержка jpg, png, pdf, txt, fb2, epub, mobi, azw3, docx
+- Автоматическое переименование и скачивание
+- Удобный Telegram-бот
+
+## Web-приложение (Flask)
+
+Структура:
 
 project/
-│
-├── app.py                   # Main Flask application file
-├── uploads/                 # Directory for uploaded files
+├── app.py
+├── uploads/
 └── templates/
-    └── index.html           # HTML template for the homepage
+    └— index.html
+
+## Установка
+
+1. Установи Flask и Pillow:
+
+```
+pip install flask pillow
+```
+
+2. Установи Calibre:
+https://calibre-ebook.com/download
+
+3. Проверь путь к ebook-convert в app.py:
+
+```python
+calibre_path = r"C:\\Program Files\\Calibre2\\ebook-convert.exe"
+```
+
+##  Запуск
+
+```
+python app.py
+```
+
+Открой: http://127.0.0.1:5000/
+
+## Сборка .exe
+
+```bash
+pyinstaller --onefile --add-data "templates;templates" app.py
+```
+
+Готовый app.exe будет в dist/
+
+## Telegram-бот
+
+1. Установи:
+
+```bash
+pip install python-telegram-bot pillow
+```
+
+3. Запусти Bot.py
+
+## Форматы
+
+- Изображения: jpg, jpeg, png, pdf
+- Текст: txt, docx
+- Электронные книги: fb2, epub, mobi, azw3

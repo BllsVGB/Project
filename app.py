@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, send_from_directory
 from PIL import Image
 import subprocess
 import os
+import webbrowser
+from threading import Timer
+
 
 app = Flask(__name__)
 
@@ -78,6 +81,16 @@ def convert():
         return send_from_directory(app.config['UPLOAD_FOLDER'], new_filename, as_attachment=True)
 
     return "Invalid file", 400
+
+
+
+def open_browser():
+    webbrowser.open_new("http://127.0.0.1:5000/")
+
+if __name__ == '__main__':
+    Timer(1, open_browser).start()
+    app.run(debug=False, port=5000)
+
 
 if __name__ == '__main__':
     if not os.path.exists(UPLOAD_FOLDER):
